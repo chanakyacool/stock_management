@@ -1,0 +1,11 @@
+Models 
+
+Company - company_name
+Size - size
+Type - type_name
+
+company has many sizes, types
+ size habtm types
+ type habtm size
+
+
