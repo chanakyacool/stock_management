@@ -7,7 +7,7 @@ gem 'rails', '3.2.16'
 
 gem 'sqlite3'
 gem 'hirb'
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', :branch => 'bootstrap3'
 
 
 # Gems used only for assets and not required
