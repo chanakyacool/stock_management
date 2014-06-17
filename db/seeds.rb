@@ -25,9 +25,18 @@
 # for i in 1..4
 # 	Type.create([{type_name: 'GIA', company_id: i}])
 # 	Type.create([{type_name: 'GIB', company_id: i}])
-# 	Type.create([{type_name: 'GIC', company_id: i}])
+# 	Type.create([{type_name: 'GIC', company_id	: i}])
 # 	Type.create([{type_name: 'MSA', company_id: i}])
 # 	Type.create([{type_name: 'MSB', company_id: i}])
 # 	Type.create([{type_name: 'MSC', company_id: i}])
 # 	Type.create([{type_name: 'Seamless', company_id: i}])
 # end
+
+# Size Types Join
+
+# for i in 1..12
+# 	for j in 1..7
+# 		SizesType.create(:size_id => i, :type_id => j)
+# 	end
+# end
+

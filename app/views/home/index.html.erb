@@ -2,39 +2,28 @@
 <table class="table table-striped table-condensed">
 	<thead>
 		<tr> 
-		<% Company.all.each do |c| %>
-		<th></th>
-		<th style="text-align:center"colspan="7"><%=c.company_name%></th>
-		<% end %>
+		  
+		<th style="text-align:center"colspan="8"><h3>Jindal</h3></th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<td>Size/Brand</td>
 			<% Type.all.each do |t| %>
-				<td><%=t.type_name%></td>
+				<td><%=t.type_name%> </td>
 			<% end %>
 		</tr>
-		<tr>
-			<td rowspan="2" style="vertical-align: middle">15MM</td> 
-			<td>12 pieces</td>
-		</tr>
-		<tr>
-			<td>11.5 rs</td>
-		</tr>
-		<tr>
-			<td>20MM</td>
-		</tr>
-		<tr>
-			<td>25MM</td>
-		<tr>
-			<td>32MM</td>
-		</tr>
-		<tr>
-			<td>40MM</td>
-		</tr>
-		<tr>
-			<td>50MM</td>
-		</tr>
+
+
+		<% Size.all.each do |s| %>
+			<tr>
+				<td><%= s.size %></td> 
+				<% Type.all.each do |type| %>
+				<td><%= s.types.where(:type_name => "#{type.type_name}").count %></td>
+				<% end %>
+			</tr>
+	 	<% end %>
+		
 	</tbody>
+
 </table>

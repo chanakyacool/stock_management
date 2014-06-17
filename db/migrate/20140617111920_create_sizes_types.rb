@@ -1,4 +1,4 @@
-class CreateSizesTypesJoinTable < ActiveRecord::Migration
+class CreateSizesTypes < ActiveRecord::Migration
  def self.up
     create_table :sizes_types, :id => false do |t|
       t.integer :size_id
