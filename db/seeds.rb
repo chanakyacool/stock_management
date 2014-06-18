@@ -20,16 +20,17 @@
 # Size.create([{size: '100mm', company_id: i}])
 # Size.create([{size: '125mm', company_id: i}])
 # Size.create([{size: '150mm', company_id: i}])
-# Size.create([{size: '150mm', company_id: i}])
+# break
 # end
 # for i in 1..4
 # 	Type.create([{type_name: 'GIA', company_id: i}])
 # 	Type.create([{type_name: 'GIB', company_id: i}])
-# 	Type.create([{type_name: 'GIC', company_id	: i}])
+# 	Type.create([{type_name: 'GIC', company_id: i}])
 # 	Type.create([{type_name: 'MSA', company_id: i}])
 # 	Type.create([{type_name: 'MSB', company_id: i}])
 # 	Type.create([{type_name: 'MSC', company_id: i}])
 # 	Type.create([{type_name: 'Seamless', company_id: i}])
+# 	break
 # end
 
 # Size Types Join
