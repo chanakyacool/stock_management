@@ -24,6 +24,14 @@ end
 
 gem 'jquery-rails'
 gem 'rails-erd'
+gem 'activeadmin'
+gem 'jquery-ui-rails'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

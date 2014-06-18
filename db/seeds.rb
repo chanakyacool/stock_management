@@ -35,9 +35,9 @@
 
 # Size Types Join
 
-# for i in 1..12
+# for i in 1..11
 # 	for j in 1..7
-# 		SizesType.create(:size_id => i, :type_id => j)
+# 		Sizetype.create(:size_id => i, :type_id => j)
 # 	end
 # end
 
