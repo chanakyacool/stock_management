@@ -3,25 +3,109 @@
 	<thead>
 		<tr> 
 		<th></th>
-		 <% Company.all.each do |c| %>
-		
-		<th style="text-align:center"colspan="<%= c.types.count %>"><h3><%=c.company_name%></h3></th>
-		<% end %>
+	 
+		<% @c1 = Company.first %>
+		<th style="text-align:center" ><h3><%=@c1.company_name%></h3></th>
+	 
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<td>Size/Brand</td>
-			<% Type.all.each do |t| %>
+			<% Type.find_all_by_company_id(@c1.id).each do |t| %>
 				<td><%=t.type_name%> </td>
 			<% end %>
 		</tr>
 
 
-		<% Size.all.each do |s| %>
+		<% Size.find_all_by_company_id(@c1.id).each do |s| %>
 			<tr>
 				<td><%= s.size %></td> 
-				<% Type.all.each do |type| %>
+				<% Type.find_all_by_company_id(@c1.id).each do |type| %>
+				<td><%= s.types.where(:type_name => "#{type.type_name}").count %></td>
+				<% end %>
+			</tr>
+	 	<% end %>
+		
+	</tbody>
+
+	<thead>
+		<tr> 
+	 <th></th>
+		<% @c2 = Company.find(2) %>
+		<th style="text-align:center" ><h3><%=@c2.company_name%></h3></th>
+	 
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Size/Brand</td>
+			<% Type.find_all_by_company_id(@c2.id).each do |t| %>
+				<td><%=t.type_name%> </td>
+			<% end %>
+		</tr>
+
+
+		<% Size.find_all_by_company_id(@c2.id).each do |s| %>
+			<tr>
+				<td><%= s.size %></td> 
+				<% Type.find_all_by_company_id(@c2.id).each do |type| %>
+				<td><%= s.types.where(:type_name => "#{type.type_name}").count %></td>
+				<% end %>
+			</tr>
+	 	<% end %>
+		
+	</tbody>
+
+	<thead>
+		<tr> 
+	 <th></th>
+		<% @c3 = Company.find(3) %>
+		<th style="text-align:center" ><h3><%=@c3.company_name%></h3></th>
+	 
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Size/Brand</td>
+			<% Type.find_all_by_company_id(@c3.id).each do |t| %>
+				<td><%=t.type_name%> </td>
+			<% end %>
+		</tr>
+
+
+		<% Size.find_all_by_company_id(@c3.id).each do |s| %>
+			<tr>
+				<td><%= s.size %></td> 
+				<% Type.find_all_by_company_id(@c3.id).each do |type| %>
+				<td><%= s.types.where(:type_name => "#{type.type_name}").count %></td>
+				<% end %>
+			</tr>
+	 	<% end %>
+		
+	</tbody>
+
+	<thead>
+		<tr> 
+	 <th></th>
+		<% @c4 = Company.find(4) %>
+		<th style="text-align:center" ><h3><%=@c4.company_name%></h3></th>
+	 
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Size/Brand</td>
+			<% Type.find_all_by_company_id(@c4.id).each do |t| %>
+				<td><%=t.type_name%> </td>
+			<% end %>
+		</tr>
+
+
+		<% Size.find_all_by_company_id(@c4.id).each do |s| %>
+			<tr>
+				<td><%= s.size %></td> 
+				<% Type.find_all_by_company_id(@c4.id).each do |type| %>
 				<td><%= s.types.where(:type_name => "#{type.type_name}").count %></td>
 				<% end %>
 			</tr>
