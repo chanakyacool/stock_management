@@ -23,6 +23,7 @@ ActiveAdmin.register Size do
 	filter :company, collection: Company.all.map{|c| [c.company_name, c.id]}
 
 	index do
+		selectable_column
 		column :id
 		column :size
 		# column :type_id
@@ -30,7 +31,9 @@ ActiveAdmin.register Size do
 		column "Company Name" do |m|
 		  cn = Company.find(m.company_id).company_name
 		  link_to cn, kickass_company_path(m.company)
-		end 
+		end
+		
+	actions 
 	end
 
 end
