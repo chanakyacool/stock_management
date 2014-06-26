@@ -37,7 +37,9 @@
 
 # for i in 1..11
 # 	for j in 1..7
-# 		Sizetype.create(:size_id => i, :type_id => j)
+# 		for k in 1..4
+# 			Sizetype.create(:size_id => i, :type_id => j, :company_id => k)
+# 		end
 # 	end
 # end
 

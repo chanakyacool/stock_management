@@ -17,7 +17,7 @@ ActiveAdmin.setup do |config|
   #
   # Note: Recommended image height is 21px to properly fit in the header
   #
-  # config.site_title_image = "/images/logo.png"
+  config.site_title_image = "/assets/kickass.png"
 
   # == Default Namespace
   #
@@ -41,7 +41,7 @@ ActiveAdmin.setup do |config|
   # within a namespace:
   #
     config.namespace :kickass do |admin|
-      admin.site_title = "Salsar Stock Management"
+      admin.site_title = "Kickass Stock Management"
     end
   #
   # This will ONLY change the title for the admin section. Other
