@@ -9,7 +9,7 @@ ActiveAdmin.register Sizetype do
 												var $option = $(this),
 												isCorrectType = ($option.attr('data-user') === company);  
 
-												$option.prop('disabled',!isCorrectType);
+												$option.prop('hidden',!isCorrectType);
 												});
 											  "
 											}, collection: Company.all.map{|t| [t.company_name, t.id]}
