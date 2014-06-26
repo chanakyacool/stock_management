@@ -5,27 +5,22 @@ ActiveAdmin.register Sizetype do
 												:onchange => "  
 												var company = $(this).val();
 
-												$('#sizetype_size_input').val(0).find('option').each(function(){
+												$('#sizetype_size_id').val(0).find('option').each(function(){
 												var $option = $(this),
 												isCorrectType = ($option.attr('data-user') === company);  
 
 												$option.prop('hidden',!isCorrectType);
 												});
+												$('#sizetype_type_id').val(0).find('option').each(function(){
+													var $option = $(this),
+													isCorrectSize = ($option.attr('data-user')== company);
+													$option.prop('hidden', !isCorrectSize);
+													});
 											  "
 											}, collection: Company.all.map{|t| [t.company_name, t.id]}
 
 			f.input :size, collection: Size.all.map{|s| [s.size, s.id, {"data-user" => s.company_id}]  }
-			# :input_html => {  	
-			# 									:onchange => "  var user = $(this).val();
-			# 									$('#sizetype_type_id').val(0).find('option').each(function(){
-			# 									var $option = $(this),
-			# 									isCorrectUser = ($option.attr('data-user') === user);  
-
-			# 									$option.prop('disabled',!isCorrectUser);
-			# 									});
-			# 								  "
-			# 								}, collection: Size.all.map{|s| [s.size, s.id, {"data-user" => s.company_id}]  }
-			f.input :type, collection: Type.all.map{|s| [s.type_name, s.id]   }
+			f.input :type, collection: Type.all.map{|s| [s.type_name, s.id, {"data-user" => s.company_id}]   }
 			# f.input :type, collection: Type.all.map{|s| [s.type_name, s.id, {"data-user" => s.sizes}]   }
 			 end
 		f.buttons

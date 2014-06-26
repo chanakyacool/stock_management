@@ -1,147 +1,28 @@
-
-<table class="table table-striped table-condensed table-bordered">
-	<thead>
- 
-		<th></th>
-	 
-		 <% @c1 = Company.first %>
-		<th style="text-align:center"> 
-			<a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<%= Sizetype.find_all_by_company_id(@c1.id).count%> in stock">
-				<h3><%=@c1.company_name%></h3>
-			</a>
-		</th>
-	 
-	 
-	</thead>
-	<tbody>
-		<tr>
-			<td>Size/Brand</td>
-			<% Type.find_all_by_company_id(@c1.id).each do |t| %>
-				<td><%=t.type_name%> </td>
-			<% end %>
-		</tr>
-
-
-		<% Size.find_all_by_company_id(@c1.id).each do |s| %>
+<% Company.all.each do |c|  %>
+	<table class="table table-striped table-condensed table-bordered">
+		<thead>
+			<th></th>
+			<th style="text-align:center"> 
+				<a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<%= Sizetype.find_all_by_company_id(c.id).count%> in stock">
+					<h3><%=c.company_name%></h3>
+				</a>
+			</th>	 
+		</thead>
+		<tbody>
 			<tr>
-				<td><%= s.size %></td> 
-				<% Type.find_all_by_company_id(@c1.id).each do |type| %>
-				<td><%=  Sizetype.find_all_by_company_id_and_type_id_and_size_id(@c1.id, type.id, s.id).count %></td>
+				<td>Size/Brand</td>
+				<% Type.find_all_by_company_id(c.id).each do |t| %>
+					<td><%=t.type_name%> </td>
 				<% end %>
 			</tr>
-	 	<% end %>
-		
-	</tbody>
-
-	<thead>
-		
-	 <th></th>
-		<% @c2 = Company.find(2) %>
-		<th style="text-align:center" ><a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<%= Sizetype.find_all_by_company_id(@c2.id).count%> in stock"><h3><%=@c2.company_name%></a></h3></th>
-	 
- 
-	</thead>
-	<tbody>
-	 	<tr>
-			<td>Size/Brand</td>
-			<% Type.find_all_by_company_id(@c2.id).each do |t| %>
-				<td><%=t.type_name%> </td>
-			<% end %>
-		</tr>
-
-
-		<% Size.find_all_by_company_id(@c2.id).each do |s| %>
-			<tr>
-				<td><%= s.size %></td> 
-				<% Type.find_all_by_company_id(@c2.id).each do |type| %>
-				<td><%=  Sizetype.find_all_by_company_id_and_type_id_and_size_id(@c2.id, type.id, s.id).count %></td>
-				<% end %>
-			</tr>
-	 	<% end %>
-		
-	</tbody>
-
-	<thead>
-	 
-	 <th></th>
-		<% @c3 = Company.find(3) %>
-		<th style="text-align:center" ><a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<%= Sizetype.find_all_by_company_id(@c3.id).count%> in stock"><h3><%=@c3.company_name%></a></h3></th>
- 
-	</thead>
-	<tbody>
- 		<tr>
-			<td>Size/Brand</td>
-			<% Type.find_all_by_company_id(@c3.id).each do |t| %>
-				<td><%=t.type_name%> </td>
-			<% end %>
-		</tr>
-
-
-		<% Size.find_all_by_company_id(@c3.id).each do |s| %>
-			<tr>
-				<td><%= s.size %></td> 
-				<% Type.find_all_by_company_id(@c3.id).each do |type| %>
-				<td><%=  Sizetype.find_all_by_company_id_and_type_id_and_size_id(@c3.id, type.id, s.id).count %></td>
-				<% end %>
-			</tr>
-	 	<% end %>
-		
-	</tbody>
-
-	<thead>
- 
-	 <th></th>
-		<% @c4 = Company.find(4) %>
-		<th style="text-align:center" ><a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<%= Sizetype.find_all_by_company_id(@c4.id).count%> in stock"><h3><%=@c4.company_name%></a></h3></th>
-	 
-	 
-	</thead>
-	<tbody>
-		<tr>
-			<td>Size/Brand</td>
-			<% Type.find_all_by_company_id(@c4.id).each do |t| %>
-				<td><%=t.type_name%> </td>
-			<% end %>
-		</tr>
-
-
-		<% Size.find_all_by_company_id(@c4.id).each do |s| %>
-			<tr>
-				<td><%= s.size %></td> 
-				<% Type.find_all_by_company_id(@c4.id).each do |type| %>
-				<td><%=  Sizetype.find_all_by_company_id_and_type_id_and_size_id(@c4.id, type.id, s.id).count %></td>
-				<% end %>
-			</tr>
-	 	<% end %>
-		
-	</tbody>
-	<thead>
- 
-	 <th></th>
-		<% @c5 = Company.find(5) %>
-		<th style="text-align:center" ><a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<%= Sizetype.find_all_by_company_id(@c5.id).count%> in stock"><h3><%=@c5.company_name%></a></h3></th>
-	 
-	 
-	</thead>
-	<tbody>
-		<tr>
-			<td>Size/Brand</td>
-			<% Type.find_all_by_company_id(@c5.id).each do |t| %>
-				<td><%=t.type_name%> </td>
-			<% end %>
-		</tr>
-
-
-		<% Size.find_all_by_company_id(@c5.id).each do |s| %>
-			<tr>
-				<td><%= s.size %></td> 
-				<% Type.find_all_by_company_id(@c5.id).each do |type| %>
-				<td><%=  Sizetype.find_all_by_company_id_and_type_id_and_size_id(@c5.id, type.id, s.id).count %></td>
-				<% end %>
-			</tr>
-	 	<% end %>
-		
-	</tbody>
-
-
-</table>
+			<% Size.find_all_by_company_id(c.id).each do |s| %>
+				<tr>
+					<td><%= s.size %></td> 
+					<% Type.find_all_by_company_id(c.id).each do |type| %>
+					<td><%=  Sizetype.find_all_by_company_id_and_type_id_and_size_id(c.id, type.id, s.id).count %></td>
+					<% end %>
+				</tr>
+		 	<% end %>
+		</tbody>
+	</table>
+<% end %>

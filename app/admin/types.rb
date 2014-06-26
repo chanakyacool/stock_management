@@ -18,4 +18,15 @@ ActiveAdmin.register Type do
       end
       active_admin_comments
     end
+    index do
+    selectable_column
+    column :id
+    column :type_name
+    column "Company Name" do |m|
+      cn = Company.find(m.company_id).company_name
+      link_to cn, kickass_company_path(m.company)
+    end
+    
+  actions 
+  end
 end
