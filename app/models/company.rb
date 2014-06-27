@@ -4,4 +4,5 @@ class Company < ActiveRecord::Base
   has_many :types
   has_many :sizetypes
   belongs_to :godown
+  validates_presence_of :company_name, :godown_id
 end

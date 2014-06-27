@@ -3,5 +3,7 @@ class Type < ActiveRecord::Base
   belongs_to :company
  	has_many :sizetypes
    has_many :sizes, :through => :sizetypes
+
+   validates_presence_of :type_name, :company_id, :godown_id
   
 end

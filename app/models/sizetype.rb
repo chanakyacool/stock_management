@@ -5,4 +5,6 @@ class Sizetype < ActiveRecord::Base
   belongs_to :type
   belongs_to :company
 
+  validates_presence_of :size_id, :type_id, :godown_id, :company_id
+
 end
