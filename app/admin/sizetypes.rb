@@ -3,49 +3,29 @@ ActiveAdmin.register Sizetype do
 		f.inputs "Size and Types" do
 			f.input :godown_id,:input_html => {
 												:onchange => "  
-												var company = $(this).val();
-
-												$('#sizetype_company_id').val(0).find('option').each(function(){
+												var godown = $(this).val();
+												$('#sizetype_company_id , #sizetype_company_id, #sizetype_type_id, #sizetype_size_id').val(0).find('option').each(function(){
 												var $option = $(this),
-												isCorrectType = ($option.attr('data-user') === company);  
-
+												isCorrectType = ($option.attr('data-user') === godown);
 												$option.prop('hidden',!isCorrectType);
 												});
-												$('#size_company_id').val(0).find('option').each(function(){
-													var $option = $(this),
-													isCorrectSize = ($option.attr('data-user')== company);
-													$option.prop('hidden', !isCorrectSize);
-													});
 											  "	
-											}, :label => 'Godown Place', :as => :select, :collection => Godown.all.map{|u| ["#{u.godown_place}", u.id]}
-			f.input :company,:input_html => {
-												:onchange => "  
-												var company = $(this).val();
+											}, :label => 'Godown Location', :as => :select, :collection => Godown.all.map{|u| ["#{u.godown_place}", u.id]}
+			f.input :company, collection: Company.all.map{|c| [c.company_name, c.id, {"data-user" => c.godown_id}]}
 
-												$('#sizetype_size_id').val(0).find('option').each(function(){
-												var $option = $(this),
-												isCorrectType = ($option.attr('data-user') === company);  
-
-												$option.prop('hidden',!isCorrectType);
-												});
-												$('#sizetype_type_id').val(0).find('option').each(function(){
-													var $option = $(this),
-													isCorrectSize = ($option.attr('data-user')== company);
-													$option.prop('hidden', !isCorrectSize);
-													});
-											  "	
-											}, collection: Company.all.map{|t| [t.company_name, t.id, {"data-user" => t.godown_id}]}
-
-			f.input :size, collection: Size.all.map{|s| [s.size, s.id, {"data-user" => s.company_id}]  }
-			f.input :type, collection: Type.all.map{|s| [s.type_name, s.id, {"data-user" => s.company_id}]   }
-			# f.input :type, collection: Type.all.map{|s| [s.type_name, s.id, {"data-user" => s.sizes}]   }
-			 end
+			f.input :size, collection: Size.all.map{|s| [s.size, s.id, {"data-user" => s.godown_id}]  }
+			f.input :type, collection: Type.all.map{|t| [t.type_name, t.id, {"data-user" => t.godown_id}]   }
+		end
 		f.buttons
 	end
  
 	show do |sizetype|
 		attributes_table do
 	        row :id 
+
+	        row :godown_id do
+	        	link_to(Godown.find(sizetype.godown_id).godown_place, kickass_godown_path(sizetype.godown_id))
+	        end
 	       	
 	       	row :size do
 	       		link_to(sizetype.size.size, kickass_size_path(sizetype.size.id))
@@ -68,6 +48,11 @@ ActiveAdmin.register Sizetype do
 	index do
 		selectable_column
 		column :id
+
+		column "Godown Location" do |g|
+			gd = Godown.find(g.godown_id).godown_place
+			link_to gd, kickass_godown_path(g.godown_id)
+		end
 		column "Company Name" do |m|
 		  cn = Company.find(m.company_id).company_name
 		  link_to cn, kickass_company_path(m.company)
