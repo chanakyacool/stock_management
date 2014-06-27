@@ -1,7 +1,24 @@
 ActiveAdmin.register Type do
 	form do |f|                       
 		f.inputs "Pipe Sizes" do
-			f.input :company, collection: Company.all.map{|c| [c.company_name, c.id]}
+      f.input :godown_id,:input_html => {
+                        :onchange => "  
+                        var company = $(this).val();
+
+                        $('#type_company_id').val(0).find('option').each(function(){
+                        var $option = $(this),
+                        isCorrectType = ($option.attr('data-user') === company);  
+
+                        $option.prop('hidden',!isCorrectType);
+                        });
+                        $('#type_company_id').val(0).find('option').each(function(){
+                          var $option = $(this),
+                          isCorrectSize = ($option.attr('data-user')== company);
+                          $option.prop('hidden', !isCorrectSize);
+                          });
+                        " 
+                      }, :label => 'Godown Place', :as => :select, :collection => Godown.all.map{|u| ["#{u.godown_place}", u.id]}
+      f.input :company, collection: Company.all.map{|c| [c.company_name, c.id,{"data-user" => c.godown_id}]}
 			f.input :type_name
 		end
 		f.buttons

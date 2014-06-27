@@ -1,6 +1,23 @@
 ActiveAdmin.register Sizetype do   
 	form do |f|                       
 		f.inputs "Size and Types" do
+			f.input :godown_id,:input_html => {
+												:onchange => "  
+												var company = $(this).val();
+
+												$('#sizetype_company_id').val(0).find('option').each(function(){
+												var $option = $(this),
+												isCorrectType = ($option.attr('data-user') === company);  
+
+												$option.prop('hidden',!isCorrectType);
+												});
+												$('#size_company_id').val(0).find('option').each(function(){
+													var $option = $(this),
+													isCorrectSize = ($option.attr('data-user')== company);
+													$option.prop('hidden', !isCorrectSize);
+													});
+											  "	
+											}, :label => 'Godown Place', :as => :select, :collection => Godown.all.map{|u| ["#{u.godown_place}", u.id]}
 			f.input :company,:input_html => {
 												:onchange => "  
 												var company = $(this).val();
@@ -16,8 +33,8 @@ ActiveAdmin.register Sizetype do
 													isCorrectSize = ($option.attr('data-user')== company);
 													$option.prop('hidden', !isCorrectSize);
 													});
-											  "
-											}, collection: Company.all.map{|t| [t.company_name, t.id]}
+											  "	
+											}, collection: Company.all.map{|t| [t.company_name, t.id, {"data-user" => t.godown_id}]}
 
 			f.input :size, collection: Size.all.map{|s| [s.size, s.id, {"data-user" => s.company_id}]  }
 			f.input :type, collection: Type.all.map{|s| [s.type_name, s.id, {"data-user" => s.company_id}]   }
