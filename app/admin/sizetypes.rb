@@ -37,7 +37,11 @@ ActiveAdmin.register Sizetype do
 	       	row :type do
 	       		link_to(sizetype.type.type_name, kickass_type_path(sizetype.type.id))	       	
 	       	end
-	       	 
+
+	         row :company do
+		        	link_to(sizetype.company.company_name, kickass_company_path(sizetype.company.id))
+		        end
+
 	       	row :created_at
 	       	row :updated_at
 	    end
@@ -59,6 +63,7 @@ ActiveAdmin.register Sizetype do
 		  cn = Size.find(m.size_id).size
 		  link_to cn, kickass_size_path(m.size)
 		end 
+
 		# column :type_id
 		# column :company_id
 		actions

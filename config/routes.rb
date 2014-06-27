@@ -4,7 +4,15 @@ StockManagement::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
+  match '/dullapally' => 'home#dullapally', :as => :dullapally  
 
+  match '/bansilalpet' => 'home#bansilalpet', :as => :bansilalpet  
+
+  match '/makalmandi' => 'home#makalmandi', :as => :makalmandi  
+
+  match '/kompally' => 'home#kompally', :as => :kompally  
+
+  match '/boiguda' => 'home#boiguda', :as => :boiguda  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

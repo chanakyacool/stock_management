@@ -1,0 +1,4 @@
+<% Company.find_all_by_godown_id(2).each do |c|  %>
+<legend><h2>Boiguda Stock</h2></legend>
+	<%= render "home/stock" , :c => c %>
+<% end %>
