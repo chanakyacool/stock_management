@@ -1,4 +1,4 @@
-<% Company.find_all_by_godown_id(4).each do |c|  %>
 <legend><h2>Kompally Stock</h2></legend>
+<% Company.find_all_by_godown_id(4).each do |c|  %>
 		<%= render "home/stock" , :c => c %>
 <% end %>
