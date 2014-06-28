@@ -1,8 +1,2 @@
-ActiveAdmin.register Godown do
- 
- 
-
-	 
-
-	
+ActiveAdmin.register Godown do	
 end
