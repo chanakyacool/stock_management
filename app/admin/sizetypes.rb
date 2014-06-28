@@ -11,10 +11,18 @@ ActiveAdmin.register Sizetype do
 												});
 											  "	
 											}, :label => 'Godown Location', :as => :select, :collection => Godown.all.map{|u| ["#{u.godown_place}", u.id]}
-			f.input :company, collection: Company.all.map{|c| [c.company_name, c.id, {"data-user" => c.godown_id}]}
+			f.input :company,:input_html => {
+												:onchange => "  
+												var company = $(this).val();
+												$('#sizetype_size_id, #sizetype_type_id').val(0).find('option').each(function(){
+												var $option = $(this),
+												isCorrectType = ($option.attr('data-user') === company);
+												$option.prop('hidden',!isCorrectType);
+												});
+											  "}	, collection: Company.all.map{|c| [c.company_name, c.id, {"data-user" => c.godown_id}]}
 
-			f.input :size, collection: Size.all.map{|s| [s.size, s.id, {"data-user" => s.godown_id}]  }
-			f.input :type, collection: Type.all.map{|t| [t.type_name, t.id, {"data-user" => t.godown_id}]   }
+			f.input :size, collection: Size.all.map{|s| [s.size, s.id, {"data-user" => s.company_id}]  }
+			f.input :type, collection: Type.all.map{|t| [t.type_name, t.id, {"data-user" => t.company_id}]   }
 		end
 		f.buttons
 	end
