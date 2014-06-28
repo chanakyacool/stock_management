@@ -1,7 +1,7 @@
 ActiveAdmin.register Company do
   	form do |f|                       
 		f.inputs "Company" do
-			f.input :godown_place, collection: Godown.all.map{|g| [g.godown_place, g.id]}
+			f.input :godown, collection: Godown.all.map{|g| [g.godown_place, g.id]}
 			f.input :company_name
 		end
 		f.buttons
