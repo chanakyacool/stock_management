@@ -4,6 +4,7 @@ class CreateSizetypes < ActiveRecord::Migration
       t.integer :size_id
       t.integer :type_id
       t.integer :company_id 
+      t.integer :godown_id
       t.timestamps
       
     end

@@ -5,7 +5,7 @@ gem 'rails', '3.2.16'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'mysql2'
 gem 'hirb'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', :branch => 'bootstrap3'
 
@@ -26,6 +26,7 @@ gem 'jquery-rails'
 gem 'rails-erd'
 gem 'activeadmin'
 gem 'jquery-ui-rails'
+# gem 'schema_plus'
 
 group :development do
   gem 'better_errors'
