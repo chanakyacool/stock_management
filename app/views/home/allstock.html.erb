@@ -1,0 +1,30 @@
+<legend><h2>All Stock Listings</h2></legend>
+
+<% Company.all.each do |c| %>
+	<table class="table table-striped table-condensed table-bordered">
+		<thead>
+		 
+			<th style="text-align:center"> 
+				<a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<%= Sizetype.find_all_by_company_id(c.id).count%> in stock">
+					<h3><%=c.company_name%></h3>
+				</a>
+			</th>	 
+		</thead>
+		<tbody>
+			<tr>
+				<td>Size/Brand</td>
+				<% Type.find_all_by_company_id(c.id).each do |t| %>
+					<td><%=t.type_name%> </td>
+				<% end %>
+			</tr>
+			<% Size.find_all_by_company_id(c.id).each do |s| %>
+				<tr>
+					<td><%= s.size %></td> 
+					<% Type.find_all_by_company_id(c.id).each do |type| %>
+					<td><%=  Sizetype.find_all_by_company_id_and_type_id_and_size_id(c.id, type.id, s.id).count %></td>
+					<% end %>
+				</tr>
+		 	<% end %>
+		</tbody>
+	</table>
+<% end %>
