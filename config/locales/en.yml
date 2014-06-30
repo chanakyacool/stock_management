@@ -3,3 +3,6 @@
 
 en:
   hello: "Hello world"
+  en:                                                                              
+  active_admin:                                                                  
+    powered_by: "Copyright - Salasar Stock Management"

@@ -1,3 +1,4 @@
+
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.16'
@@ -27,6 +28,7 @@ gem 'rails-erd'
 gem 'activeadmin'
 gem 'jquery-ui-rails'
 # gem 'schema_plus'
+gem 'zeus'
 
 group :development do
   gem 'better_errors'

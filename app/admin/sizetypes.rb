@@ -23,6 +23,7 @@ ActiveAdmin.register Sizetype do
 
 			f.input :size, collection: Size.all.map{|s| [s.size, s.id, {"data-user" => s.company_id}]  }
 			f.input :type, collection: Type.all.map{|t| [t.type_name, t.id, {"data-user" => t.company_id}]   }
+			f.input :quantity
 		end
 		f.buttons
 	end
@@ -46,7 +47,7 @@ ActiveAdmin.register Sizetype do
 	         row :company do
 		        	link_to(sizetype.company.company_name, kickass_company_path(sizetype.company.id))
 		        end
-
+		    row :quantity
 	       	row :created_at
 	       	row :updated_at
 	    end
@@ -73,7 +74,7 @@ ActiveAdmin.register Sizetype do
 		  cn = Size.find(m.size_id).size
 		  link_to cn, kickass_size_path(m.size)
 		end 
-
+		column :quantity
 		# column :type_id
 		# column :company_id
 		actions

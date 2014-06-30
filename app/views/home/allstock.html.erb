@@ -20,8 +20,11 @@
 			<% Size.find_all_by_company_id(c.id).each do |s| %>
 				<tr>
 					<td><%= s.size %></td> 
-					<% Type.find_all_by_company_id(c.id).each do |type| %>
-					<td><%=  Sizetype.find_all_by_company_id_and_type_id_and_size_id(c.id, type.id, s.id).count %></td>
+					<% Type.find_all_by_company_id(c.id).each do |type|%>
+						<%quan =   Sizetype.find_all_by_company_id_and_type_id_and_size_id(c.id, type.id, s.id) %>		
+						<% quan.each do |q| %>
+							<td>  <%= q.quantity %></td>
+						<% end  %>
 					<% end %>
 				</tr>
 		 	<% end %>
