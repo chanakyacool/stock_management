@@ -1,0 +1,6 @@
+created a Godown
+<% if activity.trackable %>
+	<b><%= activity.trackable.godown_place%></b> - <small><%= time_ago_in_words(activity.trackable.created_at)%> ago </small>
+<% else %>
+	<b>Which has since been removed</b>
+<% end %>

@@ -1,0 +1,2 @@
+updated a Size as 
+<b><%= activity.trackable.size%></b> in <b><%= Company.find(activity.trackable.company_id).company_name %></b> of <b><%= Godown.find(activity.trackable.godown_id).godown_place %></b> Godown - <small><%= time_ago_in_words(activity.trackable.created_at)%> ago </small>

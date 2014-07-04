@@ -29,12 +29,15 @@ gem 'activeadmin'
 gem 'jquery-ui-rails'
 # gem 'schema_plus'
 gem 'zeus'
+gem 'public_activity'
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
 end
+
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

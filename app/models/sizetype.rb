@@ -1,5 +1,8 @@
 class Sizetype < ActiveRecord::Base
 
+			include PublicActivity::Model
+	tracked owner: ->(controller, model){controller && controller.current_admin_user}
+	
   attr_accessible :size_id, :type_id, :company_id, :godown_id, :quantity
   belongs_to :size
   belongs_to :type
@@ -10,3 +13,4 @@ class Sizetype < ActiveRecord::Base
   validates :godown_id, :uniqueness => {:scope => [:size_id, :type_id, :company_id, :quantity]}
 
 end
+  
