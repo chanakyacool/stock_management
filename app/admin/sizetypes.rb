@@ -1,4 +1,27 @@
 ActiveAdmin.register Sizetype do   
+
+		filter :godown_id,:input_html => {
+												:onchange => "  
+												var godown = $(this).val();
+												$('#q_company_id, #q_company_id , #q_type_id, #q_size_id').val(0).find('option').each(function(){
+												var $option = $(this),
+												isCorrectType = ($option.attr('data-user') === godown);
+												$option.prop('hidden',!isCorrectType);
+												});
+											  "	
+											},:as => :check_boxes, :collection => Godown.all.map { |e| ["#{e.godown_place}", e.id] }
+		filter :company_id,:input_html => {
+												:onchange => "  
+												var company = $(this).val();
+												$('#q_size_id, #q_type_id').val(0).find('option').each(function(){
+												var $option = $(this),
+												isCorrectType = ($option.attr('data-user') === company);
+												$option.prop('hidden',!isCorrectType);
+												});
+											  "},:collection => Company.all.map { |e| ["#{e.company_name}", e.id, {"data-user" => e.godown_id}] }
+		filter :size, :collection => Size.all.map { |e| ["#{e.size}", e.id, {"data-user" => e.company_id}] }
+		filter :type, :collection => Type.all.map { |e| ["#{e.type_name}", e.id, {"data-user" => e.company_id}] }
+
 	form do |f|                       
 		f.inputs "Size and Types" do
 			f.input :godown_id,:input_html => {

@@ -1,3 +1,4 @@
-# Activity model for customisation & custom methods
+# Activity model for customization & custom methods
 class Activity < PublicActivity::Activity
+	 attr_accessible :owner_id, :owner_type
 end

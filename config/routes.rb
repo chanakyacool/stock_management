@@ -1,6 +1,6 @@
 StockManagement::Application.routes.draw do
 
-      root :to => 'home#allstock'
+      root :to => 'home#bansilalpet'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 

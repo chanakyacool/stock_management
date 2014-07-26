@@ -1,4 +1,3 @@
-
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.16'
@@ -36,8 +35,8 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
 end
-
-
+# gem 'nokogiri'
+# gem 'will_paginate'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

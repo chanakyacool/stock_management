@@ -28,6 +28,9 @@ ActiveAdmin.register Size do
 		attributes_table do
 	        row :id
 	       	row :size
+	       	  row :godown_id do
+	        	link_to(Godown.find(size.godown_id).godown_place, kickass_godown_path(size.godown_id))
+	        end
 		        row :company_name do
 		        	link_to(size.company.company_name, kickass_company_path(size.company.id))
 		        end
@@ -45,6 +48,10 @@ ActiveAdmin.register Size do
 		column :size
 		# column :type_id
 		# column :company_id
+		column "Godown Location" do |g|
+			gd = Godown.find(g.godown_id).godown_place
+			link_to gd, kickass_godown_path(g.godown_id)
+		end
 		column "Company Name" do |m|
 		  cn = Company.find(m.company_id).company_name
 		  link_to cn, kickass_company_path(m.company)

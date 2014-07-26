@@ -3,7 +3,7 @@ ActiveAdmin.register_page "Dashboard" do
     content :title => proc{ I18n.t("active_admin.dashboard") } do
         columns do
             column do
-                panel "Users" do
+                panel "Admin Users" do
                     ul do
                         AdminUser.all.map do |user|
                             li link_to(user.email, kickass_admin_user_path(user))

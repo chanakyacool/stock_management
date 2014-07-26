@@ -1,6 +1,9 @@
 class HomeController < ApplicationController
-	def index
-			
+	def allstock
+			@godowns = Godown.all
+			logger.info"*******#{@companies}" 
+			@companies = Company.all
 	end
+
  
 end
