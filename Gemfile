@@ -36,7 +36,7 @@ group :development do
   gem 'meta_request'
 end
 # gem 'nokogiri'
-# gem 'will_paginate'
+gem 'will_paginate'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
