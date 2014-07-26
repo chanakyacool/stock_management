@@ -6,7 +6,6 @@ gem 'rails', '3.2.16'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-gem 'hirb'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', :branch => 'bootstrap3'
 
 
@@ -23,7 +22,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'rails-erd'
 gem 'activeadmin'
 gem 'jquery-ui-rails'
 # gem 'schema_plus'
@@ -34,6 +32,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'rails-erd'
 end
 # gem 'nokogiri'
 gem 'will_paginate'
