@@ -1,4 +1,6 @@
-<% @companies.each do |c| %>
+ <legend><h2>All Stock Listings <small><%= Godown.all.map(&:godown_place)  %></small></h2></legend>
+
+ <% @companies.each do |c| %>
 	<table class="table table-striped table-condensed table-bordered">
 		<thead>
 		 
@@ -11,14 +13,14 @@
 		<tbody>
 			<tr>
 				<td>Size/Brand</td>
-				<% @types.find_all_by_company_id(c.id).each do |t| %>
+				<% Type.find_all_by_company_id(c.id).each do |t| %>
 					<td><%=t.type_name%> </td>
 				<% end %>
 			</tr>
-			<% @sizes.find_all_by_company_id(c.id).each do |s| %>
+			<% Size.find_all_by_company_id(c.id).each do |s| %>
 				<tr>
 					<td><%= s.size %></td> 
-					<% @types.find_all_by_company_id(c.id).each do |type|%>
+					<% Type.find_all_by_company_id(c.id).each do |type|%>
 						<%quan =   Sizetype.find_all_by_company_id_and_type_id_and_size_id(c.id, type.id, s.id) %>		
 						<% quan.each do |q| %>
 							<td>  <%= q.quantity %></td>

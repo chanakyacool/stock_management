@@ -20,11 +20,21 @@ ActiveAdmin.register_page "Dashboard" do
                     end
                 end
             end
+            # column do
+            #     panel "Comapnies" do
+            #         ul do
+            #             Company.all.map do |company|
+            #                 li link_to(company.company_name, kickass_company_path(company))
+            #             end
+            #         end
+            #     end
+            # end
+            
             column do
                 panel "Comapnies" do
                     ul do
-                        Company.all.map do |company|
-                            li link_to(company.company_name, kickass_company_path(company))
+                        Company.all.map(&:company_name).sort.uniq.each  do |company|
+                            li link_to(company, kickass_companies_path)
                         end
                     end
                 end
