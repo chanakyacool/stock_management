@@ -1,10 +1,18 @@
   <div class="page-header">
         <h1 id="timeline">Recent Activities</h1>
-    </div>
-      <% @activities.each do |activity| %>
-      <div class="activity">
-        <b><%=activity.owner.email %></b>
-        <%= render_activity activity %>
-      </div>
-      <% end %>
-      <%= will_paginate @activities %>
+  </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+        <% @activities.each do |activity| %>
+        <div class="activity">
+          <b><%=activity.owner.email %></b>
+          <%= render_activity activity %>
+        </div>
+        <% end %>
+        <%= will_paginate @activities %>
+        </div>
+                <div class="col-md-1"></div>
+
+
+
+      

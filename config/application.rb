@@ -1,4 +1,4 @@
-require File.expand_path('../boot', __FILE__)
+require File.expand_path('../boot', __FILE__) 
 
 require 'rails/all'
 
@@ -54,10 +54,10 @@ module StockManagement
     config.active_record.whitelist_attributes = true
 
     # Enable the asset pipeline
-    config.assets.enabled = true
+    config.assets.enabled = true 
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
-    config.time_zone = 'Kolkata'
+    config.time_zone = 'Kolkata' 
   end
 end

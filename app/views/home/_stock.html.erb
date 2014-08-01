@@ -1,8 +1,16 @@
+<% 
+					 @count = 0 
+    Sizetype.find_all_by_godown_id_and_company_id(1,1).each do |h|
+      unless h.quantity.nil?
+        @count += h.quantity
+      end
+    end 
+				 %>
 <table class="table table-striped table-condensed table-bordered">
 		<thead>
 		 
 			<th style="text-align:center"> 
-				<a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="">
+				<a href="#" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<%= @count%> in Stock">
 					<h3><%=c.company_name%></h3>
 				</a>
 			</th>	 
@@ -20,7 +28,12 @@
 					<% Type.find_all_by_company_id(c.id).each do |type|%>
 						<%quan =   Sizetype.find_all_by_company_id_and_type_id_and_size_id(c.id, type.id, s.id) %>		
 					<% quan.each do |q| %>
-					     <td>  <%= q.quantity %></td>
+					       <% unless q.quantity == 0 %>
+						  	
+							<td style="color:red;font-weight:bold;font-size:17px;">  <%= q.quantity %> Pipes</td>
+							<% else %>
+							<td> No Stock</td>
+						  <%end %>
 					       <% end  %>
 					<% end %>
 				</tr>

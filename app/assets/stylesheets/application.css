@@ -43,3 +43,17 @@ body {
               width:0;
           }
       }
+
+
+
+      @media print{
+        body{
+          background: #fff;
+        }
+        #container{
+          width: auto;
+          margin: 0;
+          padding: 0;
+          border: none;
+        }
+      }

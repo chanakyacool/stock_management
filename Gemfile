@@ -31,12 +31,16 @@ gem 'public_activity'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'meta_request'
+  # gem 'meta_request'
   gem 'rails-erd'
+  gem 'hirb'
 end
 # gem 'nokogiri'
 # gem 'will_paginate'
 gem "will_paginate", ">=3.0.pre2"
+
+gem 'kaminari'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
