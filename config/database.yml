@@ -6,3 +6,11 @@ development:
   pool: 5
   username: root
   password: maheshwari
+
+# development:
+# 	adapter: postgresql
+# 	encoding: unicode
+# 	database: stock_management
+# 	pool: 5
+# 	username: postgres
+# 	password: vaio
